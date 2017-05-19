@@ -6,7 +6,7 @@ class Cat
     @meal_time        = meal_time
   end
 
-# 2 Instances of Cat
+# # 2 Instances of Cat
 fido = Cat.new("fido","Alpo", 5)
 yarnball = Cat.new("yarnball", "caviar", 3)
 
@@ -14,16 +14,20 @@ yarnball = Cat.new("yarnball", "caviar", 3)
 
   def eats_at
     if @meal_time == 12
-      "12 PM"
+       "12 PM"
     elsif @meal_time == 0
-      "12 AM"
+       "12 AM"
     elsif @meal_time > 12
-      "#{@meal_time - 12} PM"
+       "#{@meal_time - 12} PM"
     else @meal_time < 12
       "#{@meal_time} AM"
     end
-
   end
 
+# Method to display cat info
+
+  def meow
+    puts "My name is #{@name.capitalize} and I love eating #{@preferred_food} at #{eats_at}"
+  end
 
 end
