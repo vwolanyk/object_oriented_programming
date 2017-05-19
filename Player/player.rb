@@ -1,7 +1,8 @@
 class Player
 
 attr_accessor :lives, :gold_coins, :health_points
-# Initializing Method
+
+#   Initializing Method
   def initialize
     @gold_coins     = 0
     @health_points  = 10
@@ -13,13 +14,14 @@ attr_accessor :lives, :gold_coins, :health_points
     @lives += 1
   end
 
+#   Collect Treasure Method
+
+  def collect_treasure
+    @gold_coins += 1
+
+    if @gold_coins % 10 == 0
+      level_up
+    end
+  end
 
 end
-
-p1 = Player.new
-
-puts p1.lives
-
-p1.level_up
-
-puts p1.lives
