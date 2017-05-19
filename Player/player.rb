@@ -24,4 +24,30 @@ attr_accessor :lives, :gold_coins, :health_points
     end
   end
 
+  #   RESTART Method - When All is lost!
+
+      def restart
+        puts "Player Reboot"
+        @lives = 5
+        @gold_coins = 0
+        @health_points = 10
+      end
+
+
+#   Do Battle Method
+
+  def do_battle(damage)
+
+    @health_points -= damage
+
+      if  @health_points < 1
+          @lives -= 1
+      end
+      if @lives == 0
+        return restart
+      else
+          @health_points = 10
+      end
+    end
+
 end
