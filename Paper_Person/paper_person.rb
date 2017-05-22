@@ -23,7 +23,7 @@ attr_reader :earnings
 
   def deliver(start_address, end_address)
     #Calculates Number of Houses Delivered regardless of Start and End Value
-     delivery_total = (start_address - end_address).abs
+     delivery_total = (start_address - end_address).abs + 1
 
      # Increases Experience based on delivery total
      @experience += delivery_total
