@@ -5,6 +5,7 @@ class PaperPerson
 attr_accessor :name, :experience
 attr_reader :earnings
 
+
 # Initialize new PaperPerson
 
   def initialize(name)
@@ -24,27 +25,40 @@ attr_reader :earnings
     #Calculates Number of Houses Delivered regardless of Start and End Value
      delivery_total = (start_address - end_address).abs
 
-     # Calculates Earnings Based on Delivery
-     if delivery_total < 50
-       @earnings = (delivery_total.to_f * 0.25) - 2.00
-     else above_quota = (delivery_total.to_f - 50)  * 0.50
-       @earnings += above_quota + 12.50
-     end
+     # Increases Experience based on delivery total
+     @experience += delivery_total
 
-    # Increases Experience based on delivery total
-    @experience += delivery_total
+     # Calculates Earnings Based on Delivery
+     if delivery_total < @quota
+       @earnings = (delivery_total * 0.25) - 2.00
+     else above_quota = (delivery_total - @quota)  * 0.50
+       @earnings += above_quota + (@quota * 0.25)
+     end
 
   end
 
+# Display PaperPerson's progress
+
+  def report
+    puts "Daily Report:"
+    puts "Name: #{@name.capitalize}"
+    puts "Experience: #{@experience} papers delivered"
+    puts "Total Earnings $#{@earnings}"
+  end
 
 end
 
 # Test Case
-# ahmed = PaperPerson.new("Ahmed")
-# puts ahmed.name
-# puts ahmed.quota
-# puts ahmed.experience
-# puts ahmed.deliver(400,232)
-# puts ahmed.experience
-# puts ahmed.quota
-# puts ahmed.earnings
+ahmed = PaperPerson.new("Ahmed")
+puts ahmed.name
+puts ahmed.quota
+puts ahmed.experience
+puts ahmed.deliver(232,400)
+puts ahmed.experience
+puts ahmed.quota
+puts ahmed.earnings
+ahmed.report
+
+# QUESTIONS
+# 1 -  Deliver Method is very Busy, does too many things? but exercise asked for things
+#  2 - How to best use currency in Ruby?
