@@ -86,11 +86,12 @@ class Rover
 
 end
 
-come_over_red = Rover.new(3, 7, "N")
-come_over_red.position
-
-come_over_red.read_instructions("MmEmlrsmm")
-
-come_over_red.read_instructions("mmlRrMm")
-
-come_over_red.position
+# TEST CASE
+# come_over_red = Rover.new(3, 7, "N")
+# come_over_red.position
+#
+# come_over_red.read_instructions("MmEmlrsmm")
+#
+# come_over_red.read_instructions("mmlRrMm")
+#
+# come_over_red.position
