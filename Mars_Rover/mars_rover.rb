@@ -5,24 +5,19 @@ class Rover
 
   attr_reader :x_coord, :y_coord, :direction
 
-  # Init Method takes x,y and direction coordinates
+  # Init Method takes x,y and direction coordinates/arguments
   def initialize(x_coord,y_coord,direction)
     @x_coord    = x_coord
     @y_coord    = y_coord
     @direction  = direction.upcase
   end
 
+  # Position Method to retrieve coordinates
   def position
     puts "X: #{@x_coord}"
     puts "Y: #{@y_coord}"
     puts "Direction: #{@direction}"
   end
-
-  #Instruction Method
-  def read_instructions(instruction)
-    # String to Array of Instructions
-    # Convert to Upcase Format for reading consistency
-    instructions_list = instruction.upcase!.split(//)
 
     # Method to Move Rover
     def move
@@ -65,6 +60,11 @@ class Rover
     end
   end
 
+  #Instruction Method
+  def read_instructions(instruction)
+    # String to Array of Instructions
+    # Convert to Upcase Format for reading consistency
+    instructions_list = instruction.upcase!.split(//)
 
     # Check to see if Valid Input
     instructions_list.each do |instruction|
