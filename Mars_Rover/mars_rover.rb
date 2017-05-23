@@ -34,6 +34,9 @@ class Rover
     end
 
   # Method to Turn Rover Left or Right
+  
+    # **?Could I improve by creating an array and move through index values?**
+
   def turn(l_or_r)
     if  l_or_r == "L"
       case @direction
